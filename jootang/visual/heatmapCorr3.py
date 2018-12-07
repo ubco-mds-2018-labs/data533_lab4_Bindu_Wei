@@ -12,46 +12,46 @@ def heatmapCorr3(df,colname1,colname2,colname3):
     
     
     try:
-    #for element of matrix[0][1], same for matrix[1][0]
-    #strong postive correlation
-    if matrix.iloc[0,1] >= 0.5 and matrix.iloc[0,1] < 1:
-        col[0] = 'firebrick'
-    #weak postive correlation
-    if matrix.iloc[0,1] >= 0 and matrix.iloc[0,1] < 0.5:
-        col[0] = 'mistyrose'
-    #strong negative correlation
-    if matrix.iloc[0,1] < -0.5:
-        col[0] = 'lightcoral'
-    #weak negative correlation
-    if matrix.iloc[0,1] >= -0.5 and matrix.iloc[0,1] < 0:
-        col[0] = 'indianred'
-    
-    #for element of matrix[0][2], same for matrix[2][0]
+        #for element of matrix[0][1], same for matrix[1][0]
         #strong postive correlation
-    if matrix.iloc[0,2] >= 0.5 and matrix.iloc[0,2] < 1:
-        col[1] = 'firebrick'
-    #weak postive correlation
-    if matrix.iloc[0,2] >= 0 and matrix.iloc[0,2] < 0.5:
-        col[1] = 'mistyrose'
-    #strong negative correlation
-    if matrix.iloc[0,2] < -0.5:
-        col[1] = 'lightcoral'
-    #weak negative correlation
-    if matrix.iloc[0,2] >= -0.5 and matrix.iloc[0,2] < 0:
-        col[1] = 'indianred'
-        
-    #for element of matrix[1][2], same for matrix[2][1]
-    if matrix.iloc[1,2] >= 0.5 and matrix.iloc[1,2] < 1:
-        col[2] = 'firebrick'
-    #weak postive correlation
-    if matrix.iloc[1,2] >= 0 and matrix.iloc[1,2] < 0.5:
-        col[2] = 'mistyrose'
-    #strong negative correlation
-    if matrix.iloc[1,2] < -0.5:
-        col[2] = 'lightcoral'
-    #weak negative correlation
-    if matrix.iloc[1,2] >= -0.5 and matrix.iloc[1,2] < 0:
-        col[2] = 'indianred'
+        if matrix.iloc[0,1] >= 0.5 and matrix.iloc[0,1] < 1:
+            col[0] = 'firebrick'
+        #weak postive correlation
+        if matrix.iloc[0,1] >= 0 and matrix.iloc[0,1] < 0.5:
+            col[0] = 'mistyrose'
+        #strong negative correlation
+        if matrix.iloc[0,1] < -0.5:
+            col[0] = 'lightcoral'
+        #weak negative correlation
+        if matrix.iloc[0,1] >= -0.5 and matrix.iloc[0,1] < 0:
+            col[0] = 'indianred'
+
+        #for element of matrix[0][2], same for matrix[2][0]
+            #strong postive correlation
+        if matrix.iloc[0,2] >= 0.5 and matrix.iloc[0,2] < 1:
+            col[1] = 'firebrick'
+        #weak postive correlation
+        if matrix.iloc[0,2] >= 0 and matrix.iloc[0,2] < 0.5:
+            col[1] = 'mistyrose'
+        #strong negative correlation
+        if matrix.iloc[0,2] < -0.5:
+            col[1] = 'lightcoral'
+        #weak negative correlation
+        if matrix.iloc[0,2] >= -0.5 and matrix.iloc[0,2] < 0:
+            col[1] = 'indianred'
+
+        #for element of matrix[1][2], same for matrix[2][1]
+        if matrix.iloc[1,2] >= 0.5 and matrix.iloc[1,2] < 1:
+            col[2] = 'firebrick'
+        #weak postive correlation
+        if matrix.iloc[1,2] >= 0 and matrix.iloc[1,2] < 0.5:
+            col[2] = 'mistyrose'
+        #strong negative correlation
+        if matrix.iloc[1,2] < -0.5:
+            col[2] = 'lightcoral'
+        #weak negative correlation
+        if matrix.iloc[1,2] >= -0.5 and matrix.iloc[1,2] < 0:
+            col[2] = 'indianred'
     except ValueError as err:
         print("Unable to assign colour. Error: err")
         
