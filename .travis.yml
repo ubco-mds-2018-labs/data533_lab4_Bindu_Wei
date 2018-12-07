@@ -10,8 +10,8 @@ install:
   - pip install matplotlib
 
 script:
-  - python testHeatmapCorr.py
-  - python testHeatmapCorr3.py
-  - python testAddone.py
-  - python testCreateBucket.py
+  - python test_HeatmapCorr.py
+  - python test_HeatmapCorr3.py
+  - python test_addone.py
+  - python test_create_bucket.py
   
