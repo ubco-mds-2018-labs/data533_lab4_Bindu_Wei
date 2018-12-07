@@ -13,5 +13,5 @@ script:
   - python test_HeatmapCorr.py
   - python test_HeatmapCorr3.py
   - python test_addone.py
-  - python test_create_bucket.py
+  - python test_create_buckets.py
   
