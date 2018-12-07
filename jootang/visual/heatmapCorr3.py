@@ -3,10 +3,15 @@ import matplotlib.pyplot as plt
 
 def heatmapCorr3(df,colname1,colname2,colname3):
     #calculate correlation
-    matrix = np.round(df[[colname1,colname2,colname3]].corr(),2)
-    
+    try:
+        matrix = np.round(df[[colname1,colname2,colname3]].corr(),2)
+    except:
+        print('Please check selected columns: same length, no null, within data frame.')
+        
     col = [None]*3
-
+    
+    
+    try:
     #for element of matrix[0][1], same for matrix[1][0]
     #strong postive correlation
     if matrix.iloc[0,1] >= 0.5 and matrix.iloc[0,1] < 1:
@@ -47,6 +52,8 @@ def heatmapCorr3(df,colname1,colname2,colname3):
     #weak negative correlation
     if matrix.iloc[1,2] >= -0.5 and matrix.iloc[1,2] < 0:
         col[2] = 'indianred'
+    except ValueError as err:
+        print("Unable to assign colour. Error: err")
         
         
     #plot heatmap: closer to 1, darker colour, shows a higher positive correlation

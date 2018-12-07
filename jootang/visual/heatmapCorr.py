@@ -3,9 +3,15 @@ import matplotlib.pyplot as plt
 
 def heatmapCorr(df, colname1, colname2):
     #calculate correlation
-    list1 = df[colname1]
-    list2 = df[colname2]
-    matrix = np.round(np.corrcoef(list1, list2),2)
+    try:
+        list1 = df[colname1]
+        list2 = df[colname2]
+    except:
+        print('Please enter column names within data frame.')
+    try:
+        matrix = np.round(np.corrcoef(list1, list2),2)
+    except:
+        print('Please drop null values in selected columns and make sure two columns have same length.')
 
     #for element of matrix[0][1], same for matrix[1][0]
     #strong postive correlation
