@@ -13,8 +13,12 @@ def addone(df, response, nbuckets = 5):
 
     # Fit a linear regression model with all the variables in given dataframe as predictors
 
-    # Response variable in y
-    y = pd.DataFrame(df[response])
+    try:
+        # Response variable in y
+        y = pd.DataFrame(df[response])
+    except KeyError:
+        print("Ensure that the response variable is present in the data")
+        
 
     # Predictors in X
     predictors = list(df.columns)
