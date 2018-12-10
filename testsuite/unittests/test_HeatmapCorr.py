@@ -8,7 +8,7 @@ parent_dir = os.path.normpath(os.path.join(os.getcwd(),'../..'))
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
     
-from .jootang.visual import heatmapCorr as hm
+from jootang.visual import heatmapCorr as hm
 
 class TestHeatmapCorr(unittest.TestCase):
     @classmethod
