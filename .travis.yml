@@ -9,8 +9,8 @@ install:
   - pip install sklearn
 
 script:
-  - python /testsuite/unittests/test_HeatmapCorr.py
-  - python /testsuite/unittests/test_HeatmapCorr3.py
-  - python /testsuite/unittests/test_addone.py
-  - python /testsuite/unittests/test_create_buckets.py
+  - python testsuite/unittests/test_HeatmapCorr.py
+  - python testsuite/unittests/test_HeatmapCorr3.py
+  - python testsuite/unittests/test_addone.py
+  - python testsuite/unittests/test_create_buckets.py
   
