@@ -23,7 +23,7 @@ class TestHeatmapCorr(unittest.TestCase):
     def test_HeatmapCorr(self):  
         #test if heatmapCorr generates plots with different data sets
 
-        self.assertTrue(np.all(hm.heatmapCorr(self.testdf, 'price', 'mmmm') == np.array([1,-0.1,-0.1,1]).reshape((2,2))))
+        self.assertIsNone(np.all(hm.heatmapCorr(self.testdf, 'price', 'mmmm') == null))
         
         self.assertTrue(np.all(hm.heatmapCorr(self.testdf, 'price', 'bitter') == np.array([1,0.8,0.8,1]).reshape((2,2))))
        
