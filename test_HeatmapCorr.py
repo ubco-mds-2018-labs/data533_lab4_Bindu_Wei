@@ -8,7 +8,7 @@ parent_dir = os.path.normpath(os.path.join(os.getcwd(),'../..'))
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
     
-from jootang.visual import heatmapCorr as hm
+import jootang.visual.heatmapCorr as hm
 
 class TestHeatmapCorr(unittest.TestCase):
     @classmethod
@@ -23,7 +23,7 @@ class TestHeatmapCorr(unittest.TestCase):
     def test_HeatmapCorr(self):  
         #test if heatmapCorr generates plots with different data sets
 
-        self.assertTrue(np.all(hm.heatmapCorr(self.testdf, 'price', 'qlty') == np.array([1,-0.1,-0.1,1]).reshape((2,2))))
+        self.assertIsNone(np.all(hm.heatmapCorr(self.testdf, 'price', 'mmmm')))
         
         self.assertTrue(np.all(hm.heatmapCorr(self.testdf, 'price', 'bitter') == np.array([1,0.8,0.8,1]).reshape((2,2))))
        
