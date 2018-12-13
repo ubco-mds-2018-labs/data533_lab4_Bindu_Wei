@@ -1,51 +1,49 @@
 import numpy as np
 
 def buckets(x, nbuckets = 5):
-
-    x = np.array(x)
-    x_bucket = []
-
     try:
+        x = np.array(x)
+    except TypeError:
+        print("Ensure that the input array is either a list or a numpy array")
+    else:
+
+        # Create a list to store output
+        x_bucket = []
+
         max_val = max(x)
         min_val = min(x)
 
-    except TypeError:
-        print("Check if the input array is in correct format")
+        try:
+            bucket_size = (max_val - min_val)/nbuckets
+        except TypeError:
+            print("Ensure that the number of buckets in input is an integer")
+        else:
 
-    bucket_size = (max_val - min_val)/nbuckets
+            limits = [min_val]
+            for i in range(1,nbuckets+1):
+                limits.append(limits[i-1]+bucket_size)
+            limits[-1] = max_val
 
-    limits = [min_val]
+            for number in x:
 
-    try:
-        for i in range(1,nbuckets+1):
-            limits.append(limits[i-1]+bucket_size)
+                for i in range(len(limits)-1):
 
-    except TypeError:
-        print("Check if the number of buckets in input is an integer")
+                    if number >= limits[i]:
 
-    limits[-1] = max_val
+                        lower = str(np.round(limits[i], 2))
+                        upper = str(np.round(limits[i+1], 2))
 
-    for number in x:
+                        if i == len(limits)-2 and number == limits[i+1]:
+                            bucket = "["+ lower +", "+ upper +"]"
+                            x_bucket.append(bucket)
 
-        for i in range(len(limits)-1):
-
-            if number >= limits[i]:
-
-                lower = str(np.round(limits[i], 2))
-                upper = str(np.round(limits[i+1], 2))
-
-                if i == len(limits)-2 and number == limits[i+1]:
-                    bucket = "["+ lower +", "+ upper +"]"
-                    x_bucket.append(bucket)
-
-                if number < limits[i+1]:
-                    if i == len(limits)-2:
-                        bucket = "["+ lower +", "+ upper +"]"
+                        if number < limits[i+1]:
+                            if i == len(limits)-2:
+                                bucket = "["+ lower +", "+ upper +"]"
+                            else:
+                                bucket = "["+ lower +", "+ upper +")"
+                            x_bucket.append(bucket)
                     else:
-                        bucket = "["+ lower +", "+ upper +")"
-                    x_bucket.append(bucket)
+                        break
 
-            else:
-                break
-
-    return x_bucket
+            return x_bucket
