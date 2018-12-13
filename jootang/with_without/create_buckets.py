@@ -1,6 +1,7 @@
 import numpy as np
 
 def buckets(x, nbuckets = 5):
+    
     try:
         x = np.array(x)
     except TypeError:
